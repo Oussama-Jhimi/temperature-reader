@@ -1,5 +1,52 @@
-# I2C LCD Library for STM32
+# I2C-Based Local Network Learning Model
 
+This project explores the use of the I2C (Inter-Integrated Circuit) protocol in a practical embedded systems environment. The goal is to demonstrate how multiple devices can communicate efficiently over a shared I2C bus with minimal wiring.
+
+## Project Overview
+
+The system is designed as a small-scale educational model for understanding local networks using the I2C protocol. It involves the integration of several hardware components commonly used in embedded applications.
+
+## Components Used
+
+- **AHT10 Temperature Sensor**  
+  Used for measuring ambient temperature.
+
+- **LCD Display with I2C Module**  
+  Displays real-time temperature data.
+
+- **STM32 Microcontroller**  
+  Configured as an I2C master to control and request data from peripherals.
+
+- **Raspberry Pi**  
+  Also configured as an I2C master for data collection and processing.
+
+## Features
+
+- Dual I2C masters (STM32 and Raspberry Pi)  
+- Real-time sensor data display  
+- Minimal wiring using I2C communication  
+- Suitable for teaching embedded systems and I2C architecture
+
+## Files Included
+
+- Circuit diagrams and schematics  
+- Source code for STM32 and Raspberry Pi  
+- Example outputs and documentation  
+- I2C address map and configuration
+
+## Usage
+
+1. Connect all devices according to the I2C bus configuration  
+2. Flash the STM32 and Raspberry Pi with the provided code  
+3. Power the system and observe real-time data on the LCD  
+4. Use the Raspberry Pi for data logging or further processing
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||I2C LCD Library for STM32|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 This is a simple and efficient I2C LCD library for STM32 microcontrollers, designed to control one or multiple I2C LCD displays. The library is object-oriented, allowing you to manage multiple LCDs simultaneously by creating instances for each display.
 
 ## Features
