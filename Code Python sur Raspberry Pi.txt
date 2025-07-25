@@ -1,0 +1,27 @@
+import smbus2
+import time
+
+# Adresse I2C de la STM32 
+STM32_I2C_ADDRESS = 0x08  # Exemple : 0x08 (à adapter selon votre configuration)
+
+# Initialiser le bus I2C (bus 1 pour Raspberry Pi)
+bus = smbus2.SMBus(1)
+
+def read_temperature():
+    try:
+        # Lire 2 octets depuis STM32 (température codée sur 2 octets)
+        data = bus.read_i2c_block_data(STM32_I2C_ADDRESS, 0x00, 2)
+        # Conversion des deux octets en température (ex. : format 16 bits, 1/10 °C)
+        temp_raw = data[0] << 8 | data[1]
+        temperature = temp_raw / 10.0
+        return temperature
+    except Exception as e:
+        print(f"Erreur communication I2C : {e}")
+        return None
+
+# Boucle principale
+while True:
+    temp = read_temperature()
+    if temp is not None:
+        print(f"Température reçue de la STM32 : {temp:.1f} °C")
+    time.sleep(2)
